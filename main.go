@@ -1,10 +1,11 @@
 package main
 
 import (
-	b "Key-Checker/controllers"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+
+	b "github.com/daffainfo/Key-Checker/controllers"
 )
 
 const (
