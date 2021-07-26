@@ -43,7 +43,7 @@ Version = 1.0.0
 }
 
 func show_list() {
-	file, _ := ioutil.ReadFile("database/data.json")
+	file, _ := ioutil.ReadFile("data.json")
 	_ = json.Unmarshal([]byte(file), &arr)
 
 	for i, checkers := range arr {
