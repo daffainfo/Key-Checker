@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"encoding/json"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -18,9 +17,45 @@ const (
 )
 
 func parse_json() []string {
-	file, _ := ioutil.ReadFile("database/data.json")
-	_ = json.Unmarshal([]byte(file), &arr)
-	return arr
+	listname := []string{
+		"Amplitude API Key",
+		"Asana Access token",
+		"Bing Maps API Key",
+		"Bit.ly Access token",
+		"Branch.IO Key and Secret",
+		"BrowserStack Access Key",
+		"Buildkite Access token",
+		"ButterCMS API Key",
+		"Calendly API Key",
+		"CircleCI Access Token",
+		"DataDog API key",
+		"Facebook Access Token",
+		"Github Token",
+		"Heroku API Key",
+		"Hubspot API Key",
+		"Ipstack API Key",
+		"Iterable API Key",
+		"Jumpcloud API key",
+		"Lokalise API Key",
+		"Loqate API key",
+		"MailGun API Key",
+		"Mapbox API Key",
+		"Pagerduty API token",
+		"Pendo Integration Key",
+		"PivotalTracker API Token",
+		"Razorpay API key and secret key",
+		"SauceLabs Username and access Key",
+		"SendGrid API Token",
+		"Spotify Access Token",
+		"Stripe Live Token",
+		"Travis CI API token",
+		"Twilio Account_sid and Auth token",
+		"Visual Studio App Center API Token",
+		"Youtube API Key",
+		"WakaTime API Key",
+		"WPEngine API Key",
+		"Zendesk Access token"}
+	return listname
 }
 
 func output_status(array_list string, code_status int) string {
