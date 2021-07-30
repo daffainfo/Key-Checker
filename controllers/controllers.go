@@ -22,7 +22,7 @@ func parse_json() []string {
 		"Branch.IO Key and Secret",
 		"BrowserStack Access Key",
 		"Buildkite Access token",
-		"ButterCMS API Key", // 8
+		"ButterCMS API Key",
 		"Calendarific API Key",
 		"Calendly API Key",
 		"CircleCI Access Token",
@@ -162,70 +162,70 @@ func Block(block_api string) string {
 	url := "https://block.io/api/v2/get_balance/?api_key=" + block_api
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[4], b) //(INI 4)
+	return output_status(parse_json()[4], b)
 }
 
 func Branch(branch_key string, branch_secret string) string {
 	url := "https://api2.branch.io/v1/app/" + branch_key + "?branch_secret=" + branch_secret
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[4], b)
+	return output_status(parse_json()[5], b)
 }
 
 func Browserstack(browserstack_username string, browserstack_key string) string {
 	url := "https://api.browserstack.com/automate/plan.json"
 	a := basic_auth(url, browserstack_username, browserstack_key, 0, "", "")
 
-	return output_status(parse_json()[5], a)
+	return output_status(parse_json()[6], a)
 }
 
 func Buildkite(buildkite_access string) string {
 	url := "https://api.buildkite.com/v2/user"
 	_, b := normal_curl(url, 1, "Authorization", "Bearer "+buildkite_access)
 
-	return output_status(parse_json()[6], b)
+	return output_status(parse_json()[7], b)
 }
 
 func ButterCMS(buttercms_token string) string {
 	url := "https://api.buttercms.com/v2/posts/?auth_token=" + buttercms_token
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[7], b)
+	return output_status(parse_json()[8], b)
 }
 
 func Calendarific(calendarific_api string) string {
 	url := "https://calendarific.com/api/v2/holidays?api_key=" + calendarific_api
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[7], b) // belom fix
+	return output_status(parse_json()[9], b)
 }
 
 func Calendly(calendly_key string) string {
 	url := "https://calendly.com/api/v1/users/me"
 	_, b := normal_curl(url, 1, "X-TOKEN", calendly_key)
 
-	return output_status(parse_json()[8], b)
+	return output_status(parse_json()[10], b)
 }
 
 func Circleci(circleci_token string) string {
 	url := "https://circleci.com/api/v1.1/me?circle-token=" + circleci_token
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[9], b)
+	return output_status(parse_json()[11], b)
 }
 
 func Coinmarketcap(coinmarketcap_api string) string {
 	url := "https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/historical?CMC_PRO_API_KEY=" + coinmarketcap_api
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[9], b) // (INI 10)
+	return output_status(parse_json()[12], b)
 }
 
 func Covalent(covalent_api string) string {
 	url := "https://api.covalenthq.com/v1/chains/?key=" + covalent_api
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[9], b) // (INI 11)
+	return output_status(parse_json()[13], b)
 }
 
 func Cryptocompare(cryptocompare_api string) string {
@@ -234,63 +234,63 @@ func Cryptocompare(cryptocompare_api string) string {
 
 	a, _ := normal_curl(url, 0, "", "")
 
-	return output_error_msg(parse_json()[15], a, error_msg) //ini 12
+	return output_error_msg(parse_json()[14], a, error_msg) //ini 12
 }
 
 func Datadog(dog_api string, dog_application string) string {
 	url := "https://api.datadoghq.com/api/v1/dashboard?api_key=" + dog_api + "&application_key=" + dog_application
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[10], b)
+	return output_status(parse_json()[16], b)
 }
 
 func Ean_search(ean_token string) string {
 	url := "https://api.ean-search.org/api?token=" + ean_token + "&op=product-search&format=json&name=Bananaboat"
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[11], b) //(INI 14)
+	return output_status(parse_json()[17], b)
 }
 
 func Facebook(facebook_token string) string {
 	url := "https://developers.facebook.com/tools/debug/accesstoken/?access_token=" + facebook_token + "&version=v3.2"
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[11], b)
+	return output_status(parse_json()[18], b)
 }
 
 func Fungenerator(fun_api string) string {
 	url := "https://api.fungenerators.com/qrcode/text?text=cok&format=png"
 	_, b := normal_curl(url, 0, "X-Fungenerators-Api-Secret", fun_api)
 
-	return output_status(parse_json()[11], b) //(INI 16)
+	return output_status(parse_json()[19], b)
 }
 
 func Github(github_username string, github_token string) string {
 	url := "https://api.github.com/user"
 	a := basic_auth(url, github_username, github_token, 0, "", "")
 
-	return output_status(parse_json()[12], a)
+	return output_status(parse_json()[20], a)
 }
 
 func Heroku(heroku_key string) string {
 	url := "https://api.heroku.com/apps"
 	_, b := normal_curl(url, 98, "Authorization", "Bearer "+heroku_key)
 
-	return output_status(parse_json()[13], b)
+	return output_status(parse_json()[21], b)
 }
 
 func Holiday(holiday_api string) string {
 	url := "https://holidayapi.com/v1/holidays?pretty&key=" + holiday_api + "&country=ID&year=2020"
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[14], b) //belom fix
+	return output_status(parse_json()[22], b)
 }
 
 func Hubspot(hubspot_key string) string {
 	url := "https://api.hubapi.com/owners/v2/owners?hapikey=" + hubspot_key
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[14], b)
+	return output_status(parse_json()[23], b)
 }
 
 func Ipstack(ipstack_key string) string {
@@ -299,35 +299,35 @@ func Ipstack(ipstack_key string) string {
 
 	a, _ := normal_curl(url, 0, "", "")
 
-	return output_error_msg(parse_json()[15], a, error_msg)
+	return output_error_msg(parse_json()[24], a, error_msg)
 }
 
 func Iterable(iterable_key string) string {
 	url := "https://api.iterable.com/api/export/data.json?dataTypeName=emailSend&range=Today&onlyFields=List.empty"
 	_, b := normal_curl(url, 1, "Api_Key", iterable_key)
 
-	return output_status(parse_json()[16], b)
+	return output_status(parse_json()[25], b)
 }
 
 func Jumpcloud(jumpcloud_key string) string {
 	url := "https://console.jumpcloud.com/api/v2/systemgroups"
 	_, b := normal_curl(url, 1, "x-api-key", jumpcloud_key)
 
-	return output_status(parse_json()[17], b)
+	return output_status(parse_json()[26], b)
 }
 
 func Localytics(localytics_api string, localytics_secret string) string {
 	url := "https://api.localytics.com/v1/apps/"
 	a := basic_auth(url, localytics_api, localytics_secret, 1, "Accept", "application/vnd.localytics.v1+hal+json")
 
-	return output_status(parse_json()[18], a)
+	return output_status(parse_json()[27], a)
 }
 
 func Lokalise(lokalise_key string) string {
 	url := "https://api.lokalise.com/api2/projects/"
 	_, b := normal_curl(url, 1, "X-Api-Token", lokalise_key)
 
-	return output_status(parse_json()[19], b)
+	return output_status(parse_json()[28], b)
 }
 
 func Loqate(loqate_key string) string {
@@ -335,123 +335,123 @@ func Loqate(loqate_key string) string {
 	url := "http://api.addressy.com/Capture/Interactive/Find/v1.00/json3.ws?Key=" + loqate_key + "&Countries=US,CA&Language=en&Limit=5&Text=BHAR"
 	a, _ := normal_curl(url, 0, "", "")
 
-	return output_error_msg(parse_json()[20], a, error_msg)
+	return output_error_msg(parse_json()[29], a, error_msg)
 }
 func Mailgun(mailgun_key string) string {
 	url := "https://api.mailgun.net/v3/domains"
 	a := basic_auth(url, "api", mailgun_key, 0, "", "")
 
-	return output_status(parse_json()[21], a)
+	return output_status(parse_json()[30], a)
 }
 
 func Mapbox(mapbox_key string) string {
 	url := "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=" + mapbox_key
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[22], b)
+	return output_status(parse_json()[31], b)
 }
 
 func Pagerduty(pagerduty_key string) string {
 	url := "https://api.pagerduty.com/schedules"
 	_, b := normal_curl(url, 97, "Authorization", "Token token="+pagerduty_key)
 
-	return output_status(parse_json()[23], b)
+	return output_status(parse_json()[32], b)
 }
 
 func Pendo(pendo_key string) string {
 	url := "https://app.pendo.io/api/v1/feature"
 	_, b := normal_curl(url, 1, "x-pendo-integration-key", pendo_key)
 
-	return output_status(parse_json()[24], b)
+	return output_status(parse_json()[33], b)
 }
 
 func Pivotaltracker(pivotaltracker_token string) string {
 	url := "https://www.pivotaltracker.com/services/v5/stories/555"
 	_, b := normal_curl(url, 1, "X-TrackerToken", pivotaltracker_token)
 
-	return output_status(parse_json()[25], b)
+	return output_status(parse_json()[34], b)
 }
 
 func Razorpay(razor_key string, razor_secret string) string {
 	url := "https://api.razorpay.com/v1/payments"
 	a := basic_auth(url, razor_key, razor_secret, 0, "", "")
 
-	return output_status(parse_json()[26], a)
+	return output_status(parse_json()[35], a)
 }
 
 func Sauce_labs(sauce_username string, sauce_key string) string {
 	url := "https://saucelabs.com/rest/v1/users/" + sauce_username
 	a := basic_auth(url, sauce_username, sauce_key, 0, "", "")
 
-	return output_status(parse_json()[27], a)
+	return output_status(parse_json()[36], a)
 }
 
 func Sendgrid(sendgrid_token string) string {
 	url := "https://api.sendgrid.com/v3/scopes"
 	_, b := normal_curl(url, 1, "Authorization", "Bearer "+sendgrid_token)
 
-	return output_status(parse_json()[28], b)
+	return output_status(parse_json()[37], b)
 }
 
 func Spotify(spotify_token string) string {
 	url := "https://api.spotify.com/v1/me"
 	_, b := normal_curl(url, 1, "Authorization", "Bearer "+spotify_token)
 
-	return output_status(parse_json()[29], b)
+	return output_status(parse_json()[38], b)
 }
 
 func Stripe(stripe_token string) string {
 	url := "https://api.stripe.com/v1/charges"
 	a := basic_auth(url, stripe_token, "", 0, "", "")
 
-	return output_status(parse_json()[30], a)
+	return output_status(parse_json()[39], a)
 }
 
 func Travis(travis_token string) string {
 	url := "https://api.travis-ci.org/repos"
 	_, b := normal_curl(url, 99, "Authorization", "Bearer "+travis_token)
 
-	return output_status(parse_json()[31], b)
+	return output_status(parse_json()[40], b)
 }
 
 func Twilio(twilio_sid string, twilio_token string) string {
 	url := "https://api.twilio.com/2010-04-01/Accounts.json"
 	a := basic_auth(url, twilio_sid, twilio_token, 0, "", "")
 
-	return output_status(parse_json()[32], a)
+	return output_status(parse_json()[41], a)
 }
 
 func Appcenter(appcenter_token string) string {
 	url := "https://api.appcenter.ms/v0.1/apps"
 	_, b := normal_curl(url, 1, "X-Api-Token", appcenter_token)
 
-	return output_status(parse_json()[33], b)
+	return output_status(parse_json()[42], b)
 }
 
 func Youtube(youtube_key string) string {
 	url := "https://www.googleapis.com/youtube/v3/activities?part=contentDetails&maxResults=25&channelId=UC-lHJZR3Gqxm24_Vd_AJ5Yw&key=" + youtube_key
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[34], b)
+	return output_status(parse_json()[43], b)
 }
 
 func Wakatime(wakatime_key string) string {
 	url := "https://wakatime.com/api/v1/users/current/projects/?api_key=" + wakatime_key
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[35], b)
+	return output_status(parse_json()[44], b)
 }
 
 func WPEngine(wp_account string, wp_key string) string {
 	url := "https://api.wpengine.com/1.2/?method=site&account_name=" + wp_account + "&wpe_apikey=" + wp_key
 	_, b := normal_curl(url, 0, "", "")
 
-	return output_status(parse_json()[36], b)
+	return output_status(parse_json()[45], b)
 }
 
 func Zendesk(zendesk_subdomain string, zendesk_token string) string {
 	url := "https://" + zendesk_subdomain + ".zendesk.com/api/v2/tickets.json"
 	_, b := normal_curl(url, 1, "Authorization", "Bearer "+zendesk_token)
 
-	return output_status(parse_json()[37], b)
+	return output_status(parse_json()[46], b)
 }
